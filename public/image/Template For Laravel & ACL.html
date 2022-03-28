@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="PT"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Template For Laravel &amp; ACL</title>
+        <meta name="csrf-token" content="Rk7PfHUPum9MhrnUZ4OHzQHqAK1cplOxqtbyTldc">
+        <!-- link rel="stylesheet" href="css/bootstrap.min.css" -->
+            <link rel="stylesheet" href="Template%20For%20Laravel%20&amp;%20ACL_ficheiros/bootstrap.css">
+        <link rel="stylesheet" href="Template%20For%20Laravel%20&amp;%20ACL_ficheiros/app.css">
+    </head>
+    <body>
+
+        <!-- inicio da calculadora -->
+        <div class="background-calculator" id="background-calculator" style="display: none !important;">
+            <div class="calculator ui-draggable ui-draggable-handle" id="calculator">
+                <button class="btn-close" id="hide-calculator">x</button>
+                <legend>Calculadora</legend>
+                <div class="calculator-result">Result: <span id="result"></span></div>
+                <div class="calculator-body">
+                    <input class="calculator-lcd" id="calc-lcd">
+                    <div class="calculator-btn" style="margin-top: 20px;">
+                        <button class="btn-number expression" value="7">7</button>
+                        <button class="btn-number expression" value="8">8</button>
+                        <button class="btn-number expression" value="9">9</button>
+                        <button class="btn-number expression" value="/">/</button>
+                        <button class="btn-clear" id="btn-clear">Clear</button>
+                    </div>
+                    <div class="calculator-btn">
+                        <button class="btn-number expression" value="4">4</button>
+                        <button class="btn-number expression" value="5">5</button>
+                        <button class="btn-number expression" value="6">6</button>
+                        <button class="btn-number expression" value="*">*</button>
+                        <button class="btn-parenteses expression" value="(">(</button>
+                        <button class="btn-parenteses expression" value=")">)</button>
+                    </div>
+                    <div class="calculator-btn">
+                        <button class="btn-number expression" value="1">1</button>
+                        <button class="btn-number expression" value="2">2</button>
+                        <button class="btn-number expression" value="3">3</button>
+                        <button class="btn-number expression" value="-">-</button>
+                        <button class="btn-parenteses expression" value=",">,</button>
+                        <button class="btn-parenteses expression" value="0">0</button>
+                    </div>
+                    <div class="calculator-btn">
+                        <button class="btn-result" id="btn-result">=</button>
+                        <button class="btn-plus expression" value="+">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inicio de novo movimento -->
+        <div class="background-carteira-movel" id="background-carteira-movel" style="display: none !important;">
+            <div class="carteira-movel ui-draggable ui-draggable-handle" id="carteira-movel">
+                <button class="btn-close" id="hide-carteira-movel">x</button>
+                <legend> <span id="movimento-title"></span> </legend>
+
+                    <!-- Inicio de novo movimento -->
+    <form method="post" id="form-carteira-movel" style="display: none;">
+        <input type="hidden" name="_token" value="Rk7PfHUPum9MhrnUZ4OHzQHqAK1cplOxqtbyTldc">        <div class="form-group">
+            <div class="mobile-service">
+                <input type="radio" name="service_id" id="mpesa" value="66" form="form-carteira-movel" required="">
+                <label for="mpesa">Mpesa</label>
+
+                <input type="radio" name="service_id" id="ponto24" value="67" form="form-carteira-movel" required="">
+                <label for="ponto24">ponto 24</label>
+
+                
+            </div>
+            <br><br>
+        </div>
+        <div class="form-super-group">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input class="form form-max input-form-carteira-movel" name="name" type="text" id="name" form="form-carteira-movel" minlength="3" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Contacto</label>
+                <input id="phone" class="form form-min input-form-carteira-movel" name="contact" type="text" form="form-carteira-movel" minlength="9" maxlength="9" required="">
+            </div>
+        </div>
+
+        <div class="form-super-group">
+            <div class="form-group">
+                <label for="montante">Montante</label>
+                <input id="montante" class="form form-min input-form-carteira-movel" name="amount" type="number" form="form-carteira-movel" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="operation">Tipo de operacao</label>
+                <select name="operation_type_id" id="operation" class="form form-max input-form-carteira-movel" form="form-carteira-movel" required="">
+                    <option value="" selected="selected">escolha..</option>
+                    <option value="1">Deposito</option>
+                    <option value="2">Levantamento</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-cadastrar" form="form-carteira-movel">Cadastrar</button>
+
+    </form>
+                <button class="btn btn-warning form-preloader" id="form-preloader" style="display: none;">carregando</button>
+            </div>
+        </div>
+
+        <!-- Visualizacao do Saldo de investimento, Carteira, gaveta -->
+        <div class="background-saldo" id="background-saldo" style="display: none !important;">
+            <div class="saldo" id="saldo">
+                <button class="btn-close" id="hide-saldo">x</button>
+                <legend>Investimento</legend>
+                <div class="saldo-body">
+                    <div class="saldo-group">
+                        <div class="saldo-card" style="margin-bottom: 20px;">
+                            <h2>Investimento</h2>
+                            <h5>Saldo: <span style="color: green; text-align: left;" id="invest2"></span></h5>
+                        </div>
+                        <div class="saldo-card">
+                            <h2>Virtual</h2>
+                            <h5>Saldo: <span id="invest3"></span> </h5>
+                        </div>
+                    </div>
+
+                    <div class="saldo-group">
+                        <div class="saldo-card" style="margin-bottom: 20px;">
+                            <h2>Fisico</h2>
+                            <h5>Saldo: <span id="invest4"></span> </h5>
+                        </div>
+                        <div class="saldo-card">
+                            <h2>Divida</h2>
+                            <h5>Saldo: <span style="color: red;" id="invest5"></span></h5>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Cabecalho da navbar-->
+        <header>
+            <nav class="nav-menu">
+                <a href="#" class="nav-menu-logo">SGC</a>
+                <nav class="nav-menu-item">
+                    <a href="http://localhost:8000/">
+                        <i class="bi bi-house" style="font-size: 28pt;"></i>
+                    </a>
+                    
+                    <a href="#">
+                        <i class="bi bi-newspaper"></i>
+                    </a>
+                    
+                    <a href="#">
+                        <i class="bi bi-server"></i>
+                    </a>
+                    
+                    <a href="#" id="show-calculator">
+                        <i class="bi bi-calculator"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-box-arrow-in-left" style="font-size: 32pt;"></i>
+                    </a>
+                </nav>
+            </nav>
+            <nav class="nav-search">
+                <div class="nav-search-menu">
+                        <button class="btn-new" id="show-carteira-movel">
+        <i class="bi bi-clipboard-plus"></i>
+    </button>
+                    <input type="search" name="" id="" class="input-search" placeholder="Pesguisar...">
+                    <button class="btn-search">Encontrar</button>
+                </div>
+                <a href="#" style="color: #fff; font-size: 25pt;">Voltar</a>
+            </nav>
+        </header>
+        <!-- Cabecalho da navbar-->
+
+        <!-- Content -->
+            <!-- sessao de historico de servicos -->
+    <div class="container">
+		<h1 class="my-5">Carteiras moveis</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Contacto</th>
+                <th scope="col">Operacao</th>
+				<th scope="col">Montante MT</th>
+				<th scope="col">Servico</th>
+                <th scope="col">Data</th>
+				<th scope="col">Acao</th>
+				</tr>
+			</thead>
+			<tbody>
+				                    <tr>
+                        <th scope="row">3</th>
+                        <td>Castro Sebastiao</td>
+                        <td>84111</td>
+                        <td>Deposito</td>
+                        <td>200.00</td>
+                        <td>Mpesa</td>
+                        <td>2022-03-19 09:26:19</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="#">view</a>
+                                                            <form method="PUT" action="" id="form-movement-mobile-wallet" style="display: inline;">
+                                    <input type="hidden" name="status" value="0">
+                                    <button type="submit" class="btn btn-warning btn-sm" href="#">spnd</button>
+                                </form>
+                                                        <a class="btn btn-danger btn-sm" href="#">dlet</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">4</th>
+                        <td>Adriano Raul</td>
+                        <td>84222</td>
+                        <td>Deposito</td>
+                        <td>350.00</td>
+                        <td>ponto24</td>
+                        <td>2022-03-19 09:26:19</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="#">view</a>
+                                                            <form method="PUT" action="" id="form-movement-mobile-wallet" style="display: inline;">
+                                    <input type="hidden" name="status" value="0">
+                                    <button type="submit" class="btn btn-warning btn-sm" href="#">spnd</button>
+                                </form>
+                                                        <a class="btn btn-danger btn-sm" href="#">dlet</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">5</th>
+                        <td>Carlitos Domingos</td>
+                        <td>84333</td>
+                        <td>Levantamento</td>
+                        <td>1000.00</td>
+                        <td>ponto24</td>
+                        <td>2022-03-19 09:50:44</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="#">view</a>
+                                                            <form method="PUT" action="" id="form-movement-mobile-wallet" style="display: inline;">
+                                    <input type="hidden" name="status" value="0">
+                                    <button type="submit" class="btn btn-warning btn-sm" href="#">spnd</button>
+                                </form>
+                                                        <a class="btn btn-danger btn-sm" href="#">dlet</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">7</th>
+                        <td>Leila Bernardo</td>
+                        <td>845269875</td>
+                        <td>Deposito</td>
+                        <td>1200.00</td>
+                        <td>Mpesa</td>
+                        <td>2022-03-20 07:58:04</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="#">view</a>
+                                                            <form method="put" action="" id="form-movement-mobile-wallet" style="display: inline;">
+                                    <input type="hidden" name="status" value="0">
+                                    <button type="submit" class="btn btn-success btn-sm" href="#">activ</button>
+                                </form>
+                                                        <a class="btn btn-danger btn-sm" href="#">dlet</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">8</th>
+                        <td>Belito Castro</td>
+                        <td>847752246</td>
+                        <td>Levantamento</td>
+                        <td>1000.00</td>
+                        <td>ponto24</td>
+                        <td>2022-03-20 08:03:56</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="#">view</a>
+                                                            <form method="put" action="" id="form-movement-mobile-wallet" style="display: inline;">
+                                    <input type="hidden" name="status" value="0">
+                                    <button type="submit" class="btn btn-success btn-sm" href="#">activ</button>
+                                </form>
+                                                        <a class="btn btn-danger btn-sm" href="#">dlet</a>
+                        </td>
+                    </tr>
+                			</tbody>
+		</table>
+    </div>
+        <!-- Content -->
+
+        <!-- Rodape-->
+        <footer>
+            <p>Raul Jr, Developer - Todos os direitos reservados</p>
+        </footer>
+        <!-- Rodape-->
+
+        <script src="Template%20For%20Laravel%20&amp;%20ACL_ficheiros/j1.js"></script>
+        <script src="Template%20For%20Laravel%20&amp;%20ACL_ficheiros/j2.js"></script>
+        <script src="Template%20For%20Laravel%20&amp;%20ACL_ficheiros/app.js"></script>
+    
+</body></html>

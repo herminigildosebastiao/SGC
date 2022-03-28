@@ -1,0 +1,698 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none !important;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+    padding-top: 210px;
+}
+
+.container{
+    padding: 0 100px;
+}
+
+/*.nav-menu-item a {
+    width: 10px;
+}*/
+
+input {
+    outline: none;
+}
+
+/*.form-group {
+    display: flex;
+    flex-direction: column;
+}*/
+
+.background-calculator,
+.background-carteira-movel,
+.background-saldo {
+    width: 100%;
+    /*height: 100vh;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #00000025;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*
+    Estilizando a calculadora
+**/
+
+.calculator {
+    width: 500px;
+    /*height: 400px;*/
+    position: fixed;
+    top: 100px;
+    background-color: #e7e7e7;
+    border: 1px solid #04837c;
+    border-top: 60px solid
+        /*#09574c*/
+        #044d43;
+    border-radius: 7px;
+    cursor: move;
+}
+
+
+.calculator legend {
+    width: 200px;
+    position: relative;
+    top: -45px;
+    left: 20px;
+    font-size: 17pt;
+    color: #fff;
+}
+
+.calculator .btn-close {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -50px;
+    left: 240px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: #3131317c;
+    color: #ee2828;
+    font-size: 13pt;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.calculator-result {
+    position: relative;
+    top: -45px;
+    padding: 0 20px;
+    font-size: 20pt;
+}
+
+.calculator-body {
+    /*padding: 0 20px;*/
+    position: relative;
+    top: -30px;
+}
+
+.calculator-lcd {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    border: 1px solid #999999;
+    outline: none;
+    font-size: 15pt;
+    color: #a32121;
+    font-weight: 900;
+    border-left: none;
+    border-right: none;
+}
+
+.calculator-btn {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 7px;
+}
+
+.calculator-btn button {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #686868;
+    font-size: 12pt;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.calculator-btn .btn-number {
+    width: 65px;
+    height: 40px;
+}
+
+.calculator-btn .btn-clear {
+    width: 173px;
+    height: 40px;
+}
+
+.calculator-btn .btn-parenteses {
+    width: 84px;
+    height: 40px;
+}
+
+.calculator-btn .btn-result {
+    width: 320px;
+    height: 40px;
+    background-color: #04837c;
+    color: #fff;
+    border: 1px solid #04837c;
+}
+
+.calculator-btn .btn-result:hover {
+    background-color: #2282db;
+    border: 1px solid #2282db;
+}
+
+.calculator-btn .btn-plus {
+    width: 128px;
+    height: 40px;
+}
+
+
+/*
+    Estilizando o menu
+**/
+
+.header-fixed{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+.nav-menu {
+    width: 100%;
+    height: 130px;
+    padding: 0 50px;
+    background-color: #09574c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu-logo {
+    font-size: 27pt;
+    color: #fff;
+    font-weight: 900;
+    /*margin-right: 360px;*/
+}
+
+.nav-menu-item {
+    display: flex;
+
+}
+
+.nav-menu-item a {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    margin-left: 30px;
+    border-radius: 5px;
+    font-size: 27pt;
+}
+
+.nav-search {
+    width: 100%;
+    height: 70px;
+    padding: 0 100px;
+    background-color: #04837c;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.container-content{
+    padding: 0 100px;
+}
+
+.btn-new {
+    width: 40px;
+    height: 55px;
+    color: #fff;
+    font-weight: 900;
+    margin-right: 20px;
+    background-color: #09574d83;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.btn-new:hover {
+    background-color: #03463d81;
+}
+
+.input-search {
+    width: 300px;
+    height: 45px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 11pt;
+    font-weight: 800;
+    outline: none;
+}
+
+.input-search:focus {
+    box-shadow: 0px 0px 8px #156d2b;
+}
+
+.btn-search {
+    width: 100px;
+    height: 45px;
+    color: #fff;
+    font-size: 11pt;
+    background-color: #026b1d;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background-color: #037c21;
+}
+
+/*
+    Estilizando as secoes e rodape
+**/
+
+section {
+    width: 100%;/*
+    height: 63.6vh;*/
+    padding: 30px 100px;
+}
+
+section .link {
+    color: #686868;
+    font-size: 14pt;
+}
+
+section .link:hover {
+    color: #686868dc;
+}
+
+section .link-active {
+    color: #04837c;
+}
+
+footer {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 100%;
+    height: 40px;
+    background-color: #09574c;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*position: fixed;
+    z-index: 9999;/*/
+    /*position: absolute;
+    bottom: 0;*/
+    position: fixed;
+    bottom: 0;
+}
+
+/*
+    Estilizando carteira movel
+**/
+
+.carteira-movel {
+    width: 800px;
+    /*height: 400px;*/
+    position: fixed;
+    top: 100px;
+    background-color: #e7e7e7;
+    border: 1px solid #04837c;
+    border-top: 60px solid
+        /*#09574c*/
+        #044d43;
+    border-radius: 7px;
+    z-index: 99999;
+    cursor: move;
+}
+
+/* preloader dos formularios */
+
+.form-preloader{
+   position: absolute;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   color: #fff;
+   bottom: 35%;
+   right: 350px;
+   z-index: 9999;
+}
+
+
+.carteira-movel legend {
+    width: 300px;
+    position: relative;
+    top: -45px;
+    left: 20px;
+    font-size: 17pt;
+    color: #fff;
+}
+
+.carteira-movel .btn-close {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -45px;
+    left: 425px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: #31313154;
+    color: #ee2828;
+    font-size: 13pt;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.carteira-movel form {
+    position: relative;
+    top: -30px;
+    padding: 0 20px;
+}
+
+.carteira-movel .form-super-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carteira-movel .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.carteira-movel .form-group label {
+    font-size: 12pt;
+    font-weight: 700;
+    margin-bottom: 7px;
+    color: #09574dde;
+}
+
+.carteira-movel .form-group .form {
+    height: 45px;
+    padding: 10px;
+    border: 1px solid #09574c;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 11pt;
+}
+
+/*
+*   Espacando os label da moedas no formulario carteira movel
+*/
+#carteira-movel .mobile-service label{
+    margin-right: 15px;
+}
+
+.carteira-movel .form-group .form-max {
+    width: 420px;
+}
+
+.carteira-movel .form-group .form-min {
+    width: 300px;
+}
+
+.carteira-movel .form-group .form-full {
+    width: 760px;
+}
+
+.carteira-movel .btn-cadastrar {
+    width: 120px;
+    height: 45px;
+    color: #fff;
+    background-color: #09574c;
+    border: 1px solid #09574c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carteira-movel .btn-cadastrar:hover {
+    background-color: #09574dea;
+}
+
+#form-recargas .form-group .input-recargas {
+    margin-right: 20px;
+}
+
+.carteira-movel .form-group-informatico {
+    width: 50%;
+    /*border: 1px solid red;*/
+}
+
+.carteira-movel .form-group-informatico .input-label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.carteira-movel .form-group-informatico div .checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+#form-service-informatic select{
+    height: 30px;
+}
+
+.carteira-movel .form-group-informatico div .papel {
+    width: 80px;
+    height: 30px;
+    padding: 5px;
+}
+
+.form-servicos-informaticos {
+    display: flex;
+}
+
+#form-service-informatic input{
+    margin-left: 3px;
+}
+
+.form-servicos-informaticos .servico-informatico-montante {
+    width: 50%;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #026b1d;
+}
+
+/*
+    Estilizando a div do saldo 
+**/
+.saldo {
+    width: 900px;
+    /*height: 315px;
+    overflow-y: auto;*/
+    position: fixed;
+    top: 100px;
+    background-color: #ffffff;
+    border: 1px solid #04837c;
+    border-top: 65px solid
+        /*#09574c*/
+        #044d43;
+    border-radius: 7px;
+    cursor: move;
+    z-index: 99;
+}
+
+canvas{
+    height: 400px !important;
+}
+
+.saldo legend {
+    width: 300px;
+    position: relative;
+    top: -75px  !important;
+    left: 20px;
+    font-size: 17pt;
+    color: #fff;
+}
+
+.saldo .btn-close {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -45px;
+    left: 830px !important;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: #31313154;
+    color: #ee2828;
+    font-size: 13pt;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.saldo .saldo-body {
+    position: relative;
+    top: -30px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #04837c;
+}
+
+.saldo .saldo-body .saldo-group {
+    width: 48%;
+}
+
+.saldo .saldo-body .saldo-card {
+    width: 100%;
+    height: 100px;
+    padding: 0 10px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    cursor: progress;
+}
+
+.saldo .saldo-body .saldo-card h2 {
+    margin-bottom: 10px;
+}
+
+/*
+    Personalizando as tabelas genericas 
+**/
+/*
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    text-align: left;
+}
+
+.table tbody+tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 0.3rem;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+    border-bottom-width: 2px;
+}
+
+.table-borderless th,
+.table-borderless td,
+.table-borderless thead th,
+.table-borderless tbody+tbody {
+    border: 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
+}*/
+
+
+
+/* estilizando a dashboard pagina iniciall */
+.painel-control{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.painel-control .card{
+    width: 250px;
+    height: 120px;
+    color: #000000a2;
+    background-color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+.painel-control .card:hover{
+    box-shadow: 0px 0px 10px #058344;
+}
+
+.painel-control a{
+    color: #044d43;
+}
+
+.painel-control .card h3, h4{
+    text-align: right;
+}
+
+.painel-control .card img{
+    width: 50px;
+    margin-bottom: 5px;
+}
+
+.painel-control .card h4{
+    margin-bottom: 3px;
+    font-size: 10pt;
+}
+
+.painel-control .card .icon-qnt{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.painel-control .card .bi{
+    color: #044d43;
+}
+
+.painel-control .card .icon-qnt .bi{
+    font-size: 35pt;
+}
+
+.painel-control .card h4{
+    margin-top: 5px;
+    font-weight: 400;
+}
